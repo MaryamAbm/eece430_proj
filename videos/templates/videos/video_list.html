@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Videos</title></head>
+<body>
+  <h1>Video List</h1>
+  <form method="get" action="">
+    <input type="text" name="q" value="{{ q }}" placeholder="Search by title">
+    <button type="submit">Search</button>
+  </form>
+  <p><a href="{% url 'video_add' %}">+ Add New Video</a></p>
+  <table border="1" cellpadding="6">
+    <tr>
+      <th>Title</th><th>Genre</th><th>Year</th><th>Actions</th>
+    </tr>
+    {% for v in videos %}
+    <tr>
+      <td><a href="{% url 'video_detail' v.pk %}">{{ v.movie_title }}</a></td>
+      <td>{{ v.movie_genre }}</td>
+      <td>{{ v.release_year }}</td>
+      <td>
+        <a href="{% url 'video_edit' v.pk %}">Edit</a> |
+        <a href="{% url 'video_delete' v.pk %}">Delete</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="4">No videos yet.</td></tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

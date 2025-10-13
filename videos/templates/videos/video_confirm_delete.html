@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Delete {{ video.movie_title }}</title></head>
+<body>
+  <h1>Delete “{{ video.movie_title }}”?</h1>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="{% url 'video_detail' video.pk %}">No, go back</a>
+  </form>
+</body>
+</html>

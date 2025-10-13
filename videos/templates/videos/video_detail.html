@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>{{ video.movie_title }}</title></head>
+<body>
+  <h1>{{ video.movie_title }}</h1>
+  <ul>
+    <li><strong>MovieID:</strong> {{ video.movie_id }}</li>
+    <li><strong>Actor 1:</strong> {{ video.actor1_name }}</li>
+    <li><strong>Actor 2:</strong> {{ video.actor2_name }}</li>
+    <li><strong>Director:</strong> {{ video.director_name }}</li>
+    <li><strong>Genre:</strong> {{ video.movie_genre }}</li>
+    <li><strong>Release Year:</strong> {{ video.release_year }}</li>
+  </ul>
+  <p>
+    <a href="{% url 'video_edit' video.pk %}">Edit</a> |
+    <a href="{% url 'video_delete' video.pk %}">Delete</a> |
+    <a href="{% url 'video_list' %}">Back to list</a>
+  </p>
+</body>
+</html>
